@@ -1,0 +1,21 @@
+.review-item{
+    text-align: left;
+    box-Shadow: 0 0 10px gray;
+    border-bottom: 1px solid grey;
+    border-right: 1px solid grey;
+    
+    margin:10px;
+    
+    padding:10px 20px;
+    height: 220px;
+    border-radius: 10px;
+    background-color:rgb(216, 241, 216);
+    transition-duration: .5s;
+    opacity: .6;
+
+
+}
+.review-item:hover{
+    opacity: 1;
+    
+}

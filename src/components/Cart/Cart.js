@@ -1,10 +1,18 @@
 import React from 'react';
 
+import './Cart.css'
+
 const Cart = (props) => {
 
     const cart = props.cart;
+    let total =0;
 
-    const total  = cart.reduce((total, prd)=> total+prd.price, 0);
+    // const total  = cart.reduce((total, prd)=> total+prd.price*prd*quantity, 0);
+    for (let i = 0; i < cart.length; i++) {
+        const product = cart[i];
+        total = total + product.price* product.quantity;
+        
+    }
     let shipping = 0;
     
     const tax = numberFormat(total*.15);
@@ -33,13 +41,24 @@ const Cart = (props) => {
 
 
     return (
-        <div>
+        <div className='cart'>
             <h3>Order Summary</h3>
-            <p>Items Ordered : {cart.length}</p>
-            <p>Shipping and Handling fee: {shipping}</p>
-            <p>Total before tax and shipping-cost: {total.toFixed(2)}</p>
-            <p>Estimated Tax: {tax}</p>
-            <p>Order Total: {grandTotal}</p>
+            <small><span style={{fontWeight:'bold'}}>Items Ordered :</span> {cart.length}</small>
+            <br/>
+            <small><span style={{fontWeight:'bold'}}>Shipping and Handling fee:</span> {shipping.toFixed(2)}</small>
+            <br/>
+            <small><span style={{fontWeight:'bold'}}>Only Item Total:</span> {total.toFixed(2)}</small>
+            <br/>
+            <small><span style={{fontWeight:'bold'}}>Estimated Tax:</span> {tax}</small>
+            <br/>
+            <small><span style={{fontWeight:'bold'}}>Order Total:</span> {grandTotal}</small>
+            <br/>
+            <br/>
+            <br/>
+            {
+                props.children
+            }
+            
         </div>
     );
 };

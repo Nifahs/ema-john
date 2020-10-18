@@ -1,0 +1,10 @@
+.reviewPage{
+    display: flex;
+}
+
+.ReviewItem{
+    width:70%;
+}
+.ReviewCart{
+    margin-top: 50px;
+}
